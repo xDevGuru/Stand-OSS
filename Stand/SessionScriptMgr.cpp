@@ -412,6 +412,11 @@ namespace Stand
 		case fm_content_survival_grouping: return ATSTRINGHASH("fm_content_survival_grouping");
 		case fm_content_valentine_cheater: return ATSTRINGHASH("fm_content_valentine_cheater");
 		case fm_content_survival: return ATSTRINGHASH("fm_content_survival");
+		case fm_content_kortz_scoping: return ATSTRINGHASH("fm_content_kortz_scoping");
+		case fm_content_kortz_entry: return ATSTRINGHASH("fm_content_kortz_entry");
+		case fm_content_kortz_equipment: return ATSTRINGHASH("fm_content_kortz_equipment");
+		case fm_content_kortz_disruption: return ATSTRINGHASH("fm_content_kortz_disruption");
+		case fm_content_kortz_task: return ATSTRINGHASH("fm_content_kortz_task");
 		}
 		return 0;
 	}

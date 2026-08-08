@@ -19,7 +19,7 @@ namespace Stand
 		{
 		}
 
-		static PedModel all[1113];
+		static PedModel all[1122];
 
 		[[nodiscard]] static const PedModel* fromHash(hash_t hash) noexcept;
 	};

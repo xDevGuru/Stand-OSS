@@ -74,7 +74,7 @@ namespace Stand
 
 		static void setLegitValues()
 		{
-			setHashes(soup::base64::decode("Ohw28wAAA/l3tc10AAAB2AAAAAAAAAAA6DrilQAAAACl89oM"));
+			setHashes(soup::base64::decode("/AQAxQAABAUigfV3AAAB2AAAAAAAAAAANRpOkQAAAABhPmjB"));
 			(*pointers::asset_verifier)->m_memoryTamperCRC.Set(0);
 			(*pointers::asset_verifier)->refreshCrc();
 		}

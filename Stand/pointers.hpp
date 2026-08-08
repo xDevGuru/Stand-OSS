@@ -274,8 +274,8 @@ namespace Stand
 		inline static soup::Bytepatch grcdevice_crash_patch{};
 #endif
 
-		inline static uint8_t* custombjmsg_nop2bytes{};
-		inline static int32_t* custombjmsg_responsecode{};
+		/*inline static uint8_t* custombjmsg_nop2bytes{};
+		inline static int32_t* custombjmsg_responsecode{};*/
 
 		static inline CPauseMenu_SetMenuPreference_t CPauseMenu_SetMenuPreference{};
 		static inline CProfileSettings** profile_settings{}; // pointer to CProfileSettings::sm_Instance

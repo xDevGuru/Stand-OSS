@@ -25,7 +25,7 @@ namespace rage
 
 		[[nodiscard]] const rage::rlGamerInfo* GetGamerInfoImpl() const;
 
-		PAD(0x08, 0xB8) int32_t channel_7_cxn_id;
+		PAD(0x08, 0x58) int32_t channel_7_cxn_id;
 		EndpointId endpoint_id;
 		uint8_t active_id; // "Active Index" (0x2C in 323)
 		uint8_t player_id; // "Physical Index" (0x2D in 323)
@@ -34,7 +34,7 @@ namespace rage
 
 		[[nodiscard]] rage::netEndpoint* getEndpoint() const;
 	};
-	static_assert(offsetof(netPlayer, active_id) == 0xC0); // 3504: 0x20 -> 0xC0 (+0xA0)
+	static_assert(offsetof(netPlayer, player_id) == 0x61); // 3889: 0xC1 -> 0x61 (-0x60)
 }
 
 #define MAX_BUBBLES 10
@@ -66,7 +66,7 @@ public:
 		HAS_COMMUNICATION_PRIVILEGES	= 1 << 4,
 	};
 
-	INIT_PAD(rage::netPlayer, 0x148) CPlayerInfo* player_info;
+	INIT_PAD(rage::netPlayer, 0xE8) CPlayerInfo* player_info;
 	/* 0x0A8 */ uint32_t m_MatchmakingGroup;
 	/* 0x0AC */ bool m_bIsSpectator;
 	PAD(0x0AC + 1, 0x0B0) CRoamingBubbleMemberInfo m_RoamingBubbleMemberInfo;
@@ -87,5 +87,5 @@ public:
 	[[nodiscard]] bool IsRockstarQA() const { return flags & IS_QA; }
 	[[nodiscard]] bool IsCheater() const { return flags & IS_CHEATER; }
 };
-static_assert(offsetof(CNetGamePlayer, player_info) == 0x148); // 3504: 0x0A8 -> 0x148
+static_assert(offsetof(CNetGamePlayer, player_info) == 0xE8); // 3889: 0x148 -> 0xE8 (-0x60)
 #pragma pack(pop)

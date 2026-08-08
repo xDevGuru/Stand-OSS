@@ -10,7 +10,7 @@ namespace rage
 	class tlsContext
 	{
 	public:
-		PAD(0, 0x22B4) int thisThreadType; // CViewportManager pattern in main
+		PAD(0, 0x22AC) int thisThreadType; // CViewportManager pattern in main
 		/* 0x22B8 */ sysMemAllocator* sysMemAllocator_sm_Current;
 		/* 0x22C0 */ sysMemAllocator* sysMemAllocator_sm_Master;
 		/* 0x22C8 */ sysMemAllocator* sysMemAllocator_sm_Container;
@@ -22,6 +22,7 @@ namespace rage
 			return *reinterpret_cast<tlsContext**>(__readgsqword(0x58));
 		}
 	};
-	static_assert(sizeof(tlsContext) == 0x2A58 + sizeof(bool));
+	//static_assert(sizeof(tlsContext) == 0x2A58 + sizeof(bool));
+	static_assert(offsetof(tlsContext, m_script_thread) == 0x2A48); // 3889: 0x2A50 -> 0x2A48 (-0x8)
 }
 #pragma pack(pop)

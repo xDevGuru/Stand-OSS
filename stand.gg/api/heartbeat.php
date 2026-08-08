@@ -3,7 +3,7 @@ $data = json_decode(file_get_contents("php://input"),true);
 
 if(empty($data)
 	||empty($data["v"])
-	||(version_compare($data["v"], "95") >= 0 || version_compare($data["v"], "24.12.1") < 0)
+	||(version_compare($data["v"], "95") >= 0 || version_compare($data["v"], "25.12.1") < 0)
 	)
 {
 	die(json_encode([
@@ -197,7 +197,7 @@ if(empty($data["p"])||$data["p"]!=$account_res[0]["privilege"])
 	$json["r"] = str_replace("{v}", join("-", $ver_arr), $json["r"]);
 	$json["r"] = str_replace("{e}", $ed_name, $json["r"]);
 }
-if(version_compare($data["v"], "25.12.1") < 0)
+if(version_compare($data["v"], "26.6.1") < 0)
 {
 	$json["t"] = "VER_UNSUPP_AUTHONLY";
 }

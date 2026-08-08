@@ -308,6 +308,11 @@ namespace rage
 		case ATSTRINGHASH("fm_content_survival_grouping"): return LIT("fm_content_survival_grouping");
 		case ATSTRINGHASH("fm_content_valentine_cheater"): return LIT("fm_content_valentine_cheater");
 		case ATSTRINGHASH("fm_content_survival"): return LIT("fm_content_survival");
+		case ATSTRINGHASH("fm_content_kortz_scoping"): return LIT("fm_content_kortz_scoping");
+		case ATSTRINGHASH("fm_content_kortz_entry"): return LIT("fm_content_kortz_entry");
+		case ATSTRINGHASH("fm_content_kortz_equipment"): return LIT("fm_content_kortz_equipment");
+		case ATSTRINGHASH("fm_content_kortz_disruption"): return LIT("fm_content_kortz_disruption");
+		case ATSTRINGHASH("fm_content_kortz_task"): return LIT("fm_content_kortz_task");
 		}
 		return LIT(fmt::to_string(hash));
 	}

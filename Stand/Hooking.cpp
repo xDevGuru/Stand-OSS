@@ -296,7 +296,7 @@ f("V2", get_visual_config_float, 0) \
 f("V3", get_visual_config_float_with_directory, 0) \
 f("V1", get_visual_config_colour, 0) \
 f("V4", camFactory_CreateObject, 0) \
-f("X0", some_player_sync, 0) \
+/*f("X0", some_player_sync, 0)*/ \
 f("X1", rage_aiTaskTree_UpdateTask, 0) \
 f("F2", CControl_StartPlayerPadShake, 0) \
 f("F5", rage_FriendsReaderTask_Complete, 0) \
@@ -7025,7 +7025,7 @@ to_recover.emplace_back(addr, *addr); \
 	}
 #endif
 
-	bool __fastcall rage_rlTelemetry_Export(/* rage::RsonWriter */ void* rw, const char* name, uint64_t metricTime, rage::rlMetric* metric)
+	bool __fastcall rage_rlTelemetry_Export(/* rage::RsonWriter */ void* rw, void* a2, void* a3, uint64_t metricTime, rage::rlMetric* metric)
 	{
 		bool allow = true;
 		__try
@@ -7201,7 +7201,7 @@ to_recover.emplace_back(addr, *addr); \
 		{
 			__try
 			{
-				return OG(rage_rlTelemetry_Export)(rw, name, metricTime, metric);
+				return OG(rage_rlTelemetry_Export)(rw, a2, a3, metricTime, metric);
 			}
 			__EXCEPTIONAL()
 			{
@@ -7931,7 +7931,7 @@ to_recover.emplace_back(addr, *addr); \
 	}
 
 	// void __fastcall CNetworkObjectMgr::UpdateAllObjectsForRemotePlayers(CNetworkObjectMgr* this, const rage::netPlayer* sourcePlayer)
-	static char __fastcall some_player_sync(CNetworkObjectMgr* mgr, CNetGamePlayer* player)
+	/*static char __fastcall some_player_sync(CNetworkObjectMgr* mgr, CNetGamePlayer* player)
 	{
 		sync_src = player->player_id;
 
@@ -7947,7 +7947,7 @@ to_recover.emplace_back(addr, *addr); \
 			}
 		}
 		return 0;
-	}
+	}*/
 
 	unsigned int __fastcall rage_aiTaskTree_UpdateTask(rage::aiTaskTree* tree, rage::aiTask* task, float timeStep)
 	{

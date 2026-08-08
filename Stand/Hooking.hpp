@@ -147,7 +147,7 @@ namespace Stand
 
 		void __fastcall rage_netArrayHandlerBase_WriteUpdate(rage::netArrayHandlerBase* _this, const rage::netPlayer* player, rage::datBitBuffer* bitBuffer, uint16_t updateSeq, unsigned int* currentElement, bool logSizes);
 
-		bool __fastcall rage_rlTelemetry_Export(/* rage::RsonWriter */ void* rw, const char* name, uint64_t metricTime, rage::rlMetric* metric);
+		bool __fastcall rage_rlTelemetry_Export(/* rage::RsonWriter */ void* rw, void* a2, void* a3, uint64_t metricTime, rage::rlMetric* metric);
 #if HTTP_HOOK
 		char __fastcall rage_netHttpRequest_Update(rage::netHttpRequest* a1);
 #endif
@@ -178,7 +178,7 @@ namespace Stand
 		float* __fastcall get_visual_config_colour(void* config, float* a2, const char* prop);
 		camBaseObject* __fastcall camFactory_CreateObject(const camBaseObjectMetadata* metadata, const rage::ClassId* classIdToVerify);
 
-		char __fastcall some_player_sync(CNetworkObjectMgr* mgr, CNetGamePlayer* player);
+		//char __fastcall some_player_sync(CNetworkObjectMgr* mgr, CNetGamePlayer* player);
 		unsigned int __fastcall rage_aiTaskTree_UpdateTask(rage::aiTaskTree* tree, rage::aiTask* task, float timeStep);
 
 		void __fastcall CControl_StartPlayerPadShake(void* _this, unsigned int lightDuration, int lightIntensity, unsigned int heavyDuration, int heavyIntensity, int DelayAfterThisOne);
@@ -519,7 +519,7 @@ namespace Stand
 		DetourHook camFactory_CreateObject_hook;
 		bool disable_cam_shake = false;
 
-		DetourHook some_player_sync_hook;
+		//DetourHook some_player_sync_hook;
 
 		DetourHook rage_aiTaskTree_UpdateTask_hook;
 		uint8_t graceful_landing = 0;

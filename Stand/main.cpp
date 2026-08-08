@@ -1616,7 +1616,7 @@ namespace Stand
 		{
 			p = p.add(1).rip();
 			STORE_POINTER(CPlaySoundEvent_TriggerPos);
-			p = p.add(140);
+			p = p.add(0x00007FF6F9CCB390 - 0x00007FF6F9CCB2F4);
 			CHECK_EXISTING_HOOK("FA", "48 89 5C 24 08");
 			STORE_POINTER(CPlaySoundEvent_TriggerEnt);
 			p = p.add(0x00007FF638B809EB - 0x00007FF638B809D4).add(3).rip();
@@ -1856,7 +1856,7 @@ namespace Stand
 		});
 		BATCH_ADD_FUNC("L4", CPauseMenu_UpdateProfileFromMenuOptions, "48 89 5C 24 08", "48 89 74 24 10 57 48 83 EC 20 48 8B 1D ? ? ? ? 44 8B 05 ? ? ? ? 40 8A F2 40 8A F9 BA 02 00 00 00");
 
-		BATCH_ADD_OPTIONAL_HOOK("N0", rage_rlTelemetry_Export, "48 8B C4 48 89", "58 08 48 89 68 10 48 89 70 18 48 89 78 20 41 56 48 83 EC 30 49 8B F0 4C 8D 40 EC");
+		BATCH_ADD_OPTIONAL_HOOK("N0", rage_rlTelemetry_Export, "48 89 5C 24 08", "48 89 6C 24 18 56 57 41 56 48 83 EC 20 4D 8B F1 49 8B D8 48 8B F2 48 8B F9 C6 02 00");
 #if HTTP_HOOK
 		BATCH_ADD("N1", "48 8D 6C 24 30 48 89 9D 30 04 00 00 48 89 B5 40 04 00 00", [](soup::Pointer p)
 		{
@@ -2038,7 +2038,7 @@ namespace Stand
 			pointers::rage_datBitBuffer_ReadBits = p.sub(5).as<rage_datBitBuffer_ReadBits_t>();
 		});
 		BATCH_ADD_FUNC("P3", rage_datBitBuffer_WriteBits, "48 89 5C 24 08", "57 48 83 EC 30 F6 41 1C 01 45 8B D1");
-		BATCH_ADD("P4", "4C 8B DC 49 89 5B 08 49 89 6B 10 49 89 73 18 57 41 56 41 57 48 83 EC 30 8A 82 C1 00 00 00 41 8B F1 49 8B E8", [](soup::Pointer p)
+		BATCH_ADD("P4", "4C 8B DC 49 89 5B 08 49 89 6B 10 49 89 73 18 57 41 56 41 57 48 83 EC ? 80 7A 61 FF", [](soup::Pointer p)
 		{
 			pointers::send_net_event_ack = p.as<send_net_event_ack_t>();
 		});
@@ -2077,10 +2077,10 @@ namespace Stand
 			script_vm_helper_init_1(pointers::script_vm_jump_table, &ScriptVmErrorHandling::onInvalidScriptOpCode);
 			script_vm_op_native_init(&pointers::script_vm_jump_table[Native]);
 		});
-		BATCH_ADD_OPTIONAL("PD", "4D 85 C0 74 06 2B FE 41 89 78 14 45 89 57 08 41 8B C2 EB", [](soup::Pointer p)
+		BATCH_ADD_OPTIONAL("PD", "45 89 57 08 41 8B C2 EB", [](soup::Pointer p)
 		{
-			script_vm_helper_init_2(&ScriptVmErrorHandling::onScriptThreadError, p.add(19).ripT<int8_t>().as<void*>());
-			pointers::script_thread_error_kill_1 = p.add(11).as<void*>();
+			script_vm_helper_init_2(&ScriptVmErrorHandling::onScriptThreadError, p.add(8).ripT<int8_t>().as<void*>());
+			pointers::script_thread_error_kill_1 = p.as<void*>();
 		});
 		BATCH_ADD_OPTIONAL("PE", "B8 02 00 00 00 41 89 47 08 48 81 C4 B8 00 00 00", [](soup::Pointer p)
 		{
@@ -2208,11 +2208,11 @@ namespace Stand
 		});
 #endif
 		// QH is used by ComponentSpoofPos
-		BATCH_ADD("QI", "74 0B 41 BF 18 00 00 00", [](soup::Pointer p)
+		/*BATCH_ADD("QI", "74 0B 41 BF 18 00 00 00", [](soup::Pointer p)
 		{
 			pointers::custombjmsg_nop2bytes = p.as<uint8_t*>();
 			pointers::custombjmsg_responsecode = p.add(4).as<int32_t*>();
-		});
+		});*/
 		BATCH_ADD("QJ", "E8 ? ? ? ? 44 8B 86 80 00 00 00 48 8B 96 88 00 00 00 48 8D 8D F0 00 00 00 45 33 C9 E8", [](soup::Pointer p)
 		{
 			// now within rage::netIceTunneler::OnCxnEvent
@@ -2421,7 +2421,7 @@ namespace Stand
 			CHECK_EXISTING_HOOK("S0", "48 89 5C 24 08");
 			STORE_HOOK(send_net_info_to_lobby_wrap);
 		});
-		BATCH_ADD_OPTIONAL("S3", "48 8B 81 48 01 00 00 48 83 C0 20 C3", [](soup::Pointer p)
+		BATCH_ADD_OPTIONAL("S3", "48 8B 81 E8 00 00 00 48 83 C0 20 C3", [](soup::Pointer p)
 		{
 			STORE_HOOK(CNetGamePlayer_GetGamerInfo);
 		});
@@ -2510,7 +2510,7 @@ namespace Stand
 		// V7, V8, V9, & VA are used by ComponentDrawPatch
 		BATCH_ADD_MANDATORY_HOOK("VB", camFrame_copy, "48 89 5C 24 08", "57 48 83 EC 20 8B 42 40 F3 0F 10 4A 48");
 
-		BATCH_ADD_OPTIONAL_HOOK("X0", some_player_sync, "48 89 5C 24 10", "48 89 4C 24 08 55 56 57 41 54 41 55 41 56 41 57 B8 ? ? ? ? E8 ? ? ? ? 48 2B E0 48 8B FA 48 8B F1");
+		//BATCH_ADD_OPTIONAL_HOOK("X0", some_player_sync, "48 89 5C 24 10", "48 89 4C 24 08 55 56 57 41 54 41 55 41 56 41 57 B8 ? ? ? ? E8 ? ? ? ? 48 2B E0 48 8B FA 48 8B F1");
 		BATCH_ADD_OPTIONAL("X1", "0F 28 D6 48 8B D3 48 8B CF E8 ? ? ? ? 8B F0 EB 4F", [](soup::Pointer p)
 		{
 			p = p.add(10).rip();

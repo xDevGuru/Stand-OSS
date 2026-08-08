@@ -220,6 +220,11 @@ enum eMpMission
 	fm_content_survival_grouping,
 	fm_content_valentine_cheater,
 	fm_content_survival,
+	fm_content_kortz_scoping,
+	fm_content_kortz_entry,
+	fm_content_kortz_equipment,
+	fm_content_kortz_disruption,
+	fm_content_kortz_task,
 
 	AM_BOAT_TAXI,
 	AM_HELI_TAXI,
