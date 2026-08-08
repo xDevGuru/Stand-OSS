@@ -139,7 +139,7 @@
       <Command>cd .. &amp;&amp; cd lang &amp;&amp; php update.php</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>cd .. &amp;&amp; php xormagics.php &amp;&amp; move /Y Stand\bin\Release\Stand.dll Stand\bin\Release\Stand_unprotected.dll &amp;&amp;  move /Y Stand\bin\Release\Stand.map Stand\bin\Release\Stand_unprotected.map &amp;&amp; ISaidNoRTTI\bin\ISaidNoRTTI.exe Stand\bin\Release\Stand_unprotected.dll &amp;&amp; "Virtualizer\Virtualizer.exe" /protect Stand.cv /shareconsole &amp;&amp; upx.exe Stand\bin\Release\Stand_uncompressed.dll -o Stand\bin\Release\Stand.dll -9 --overlay=strip --compress-exports=0</Command>
+      <Command>cd .. &amp;&amp; move /Y Stand\bin\Release\Stand.dll Stand\bin\Release\Stand_uncompressed.dll &amp;&amp; move /Y Stand\bin\Release\Stand.map Stand\bin\Release\Stand_uncompressed.map &amp;&amp; ISaidNoRTTI\bin\ISaidNoRTTI.exe Stand\bin\Release\Stand_uncompressed.dll &amp;&amp; upx.exe Stand\bin\Release\Stand_uncompressed.dll -o Stand\bin\Release\Stand.dll -9 --overlay=strip --compress-exports=0</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dev Build|x64'">
@@ -194,7 +194,7 @@
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>cd .. &amp;&amp; move /Y Stand\bin\Release\Stand.dll Stand\bin\Release\Stand_unprotected.dll &amp;&amp;  move /Y Stand\bin\Release\Stand.map Stand\bin\Release\Stand_unprotected.map &amp;&amp; ISaidNoRTTI\bin\ISaidNoRTTI.exe Stand\bin\Release\Stand_unprotected.dll &amp;&amp; "Virtualizer\Virtualizer.exe" /protect Stand.cv /shareconsole &amp;&amp; upx.exe Stand\bin\Release\Stand_uncompressed.dll -o Stand\bin\Release\Stand.dll -9 --overlay=strip --compress-exports=0</Command>
+      <Command>cd .. &amp;&amp; move /Y Stand\bin\Release\Stand.dll Stand\bin\Release\Stand_uncompressed.dll &amp;&amp; move /Y Stand\bin\Release\Stand.map Stand\bin\Release\Stand_uncompressed.map &amp;&amp; ISaidNoRTTI\bin\ISaidNoRTTI.exe Stand\bin\Release\Stand_uncompressed.dll &amp;&amp; upx.exe Stand\bin\Release\Stand_uncompressed.dll -o Stand\bin\Release\Stand.dll -9 --overlay=strip --compress-exports=0</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -270,7 +270,6 @@
     <ClInclude Include="alphanum.hpp" />
     <ClInclude Include="Animations.hpp" />
     <ClInclude Include="AntiAntiCheat.hpp" />
-    <ClInclude Include="AntiDbg.hpp" />
     <ClInclude Include="AntiEntitySpam.hpp" />
     <ClInclude Include="apply_spoofed_name.hpp" />
     <ClInclude Include="AptHelper.hpp" />
@@ -2080,8 +2079,6 @@
     <ClInclude Include="Whitelist.hpp" />
     <ClInclude Include="Worker.hpp" />
     <ClInclude Include="WorldState.hpp" />
-    <ClInclude Include="XoredNativeHash.hpp" />
-    <ClInclude Include="xormagics.hpp" />
     <ClInclude Include="yeet_flow.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -2094,7 +2091,6 @@
     <ClCompile Include="AllEntitiesEveryTick.cpp" />
     <ClCompile Include="Animations.cpp" />
     <ClCompile Include="AntiAntiCheat.cpp" />
-    <ClCompile Include="AntiDbg.cpp" />
     <ClCompile Include="AntiEntitySpam.cpp" />
     <ClCompile Include="apply_spoofed_name.cpp" />
     <ClCompile Include="AptHelper.cpp" />

@@ -8,7 +8,6 @@
 #include <soup/sha1.hpp>
 #include <soup/string.hpp>
 
-#include "AntiDbg.hpp"
 #include "Auth.hpp"
 #include "CNetworkAssetVerifier.hpp"
 #include "CodeIntegrity.hpp"
@@ -154,7 +153,7 @@ namespace Stand
 		return *pointers::CLoadingScreens_ms_Context == 0 && *pointers::ped_factory != nullptr && (*pointers::ped_factory)->m_local_ped != nullptr;
 	}
 
-	static void call_with_time_limit(void f(uintptr_t), uintptr_t ud = 0)
+	/*static void call_with_time_limit(void f(uintptr_t), uintptr_t ud = 0)
 	{
 		auto t = get_current_time_millis();
 		f(ud);
@@ -163,7 +162,7 @@ namespace Stand
 			AntiDbg::apologiseInAdvance(1);
 			AntiDbg::bToTheSToTheOToTheD();
 		};
-	}
+	}*/
 
 	static void ensureAntiDump()
 	{
@@ -180,17 +179,6 @@ namespace Stand
 		// Initialise
 		g_logger.init(FileLogger::getMainFilePath());
 		g_logger.log(soup::ObfusString(STAND_NAMEVERSION " reporting for duty!"));
-		// Check debugger
-		if (auto dbgid = AntiDbg::getRunningDebuggerId(true))
-		{
-			if (dbgid >= 100)
-			{
-				dbgid -= 100;
-			}
-			g_logger.log(fmt::format("Startup failed ({})", dbgid));
-			mainUnload();
-			return FALSE;
-		}
 		// Start exception handling
 		g_hmodule = hmod;
 		g_og_unhandled_exception_filter = Exceptional::setUnhandledExceptionHandler();
@@ -253,7 +241,7 @@ namespace Stand
 
 		// Erase PE Header
 #if ERASE_PE_HEADER
-		call_with_time_limit([](uintptr_t)
+		/*call_with_time_limit*/([](uintptr_t)
 		{
 			DWORD OldProtect;
 			VirtualProtect(g_hmodule, 0x1000, PAGE_READWRITE, &OldProtect);
@@ -569,19 +557,7 @@ namespace Stand
 
 			while (true)
 			{
-				if constexpr (AntiDbg::isEnabled())
-				{
-					if (AntiDbg::getRunningDebuggerId(true) != 0)
-					{
-						if (!g_logger.isInited())
-						{
-							g_logger.init(FileLogger::getMainFilePath());
-						}
-						AntiDbg::apologiseInAdvance(3);
-						AntiDbg::crash();
-					}
-				}
-				soup::os::sleep(500);
+				soup::os::sleep(60 * 60 * 1000);
 			}
 		}
 		else
@@ -2863,17 +2839,6 @@ namespace Stand
 			{
 				bad_state = 24;
 			}
-			else if (auto dbgid = AntiDbg::getRunningDebuggerId(false))
-			{
-				if (dbgid >= 100)
-				{
-					AntiDbg::apologiseInAdvance(4);
-					AntiDbg::enqueueSuspension(dbgid);
-					AntiDbg::bToTheSToTheOToTheD();
-					dbgid -= 100;
-				}
-				bad_state = dbgid + 100;
-			}
 			else if (!CodeIntegrity::verify())
 			{
 				bad_state = 25;
@@ -2951,9 +2916,6 @@ namespace Stand
 				// 1 & 9 are unused
 				if (bad_state >= 10 || ++st.bad_state_unload == 15)
 				{
-					// This will brick future attempts to update the grid if a content update is not queued right now
-					g_menu_grid.content_update_queued = true;
-
 					g_logger.log(fmt::format(fmt::runtime(soup::ObfusString("It looks like Stand is in a bad state ({})").str()), bad_state));
 					//g_auth.reportEvent("D1", fmt::to_string(bad_state));
 

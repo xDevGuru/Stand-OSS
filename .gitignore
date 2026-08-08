@@ -26,7 +26,6 @@ lang/translations.json
 Stand/bin.*pp
 Stand/font_*
 Stand/lang_*.cpp
-Stand/xormagics.hpp
 stand.gg/lang/
 vehicle_items generator/vehicles.json
 

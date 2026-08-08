@@ -127,11 +127,11 @@ else if($data["t"] == "SA")
 }
 else if($data["t"] == "AZ")
 {
-	if ($data["d"] != "2") // ignore PEB::BeingDebugged for the time being
+	/*if ($data["d"] != "2") // ignore PEB::BeingDebugged for the time being
 	{
 		report_event($data["t"], $data["d"]);
 		$db->query("UPDATE `accounts` SET `suspended_for`='debugger detected' WHERE `id`=?", "s", $account_res[0]["id"]);
-	}
+	}*/
 }
 else if($data["t"] == "T0")
 {

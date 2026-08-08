@@ -382,12 +382,6 @@ namespace Stand
 						}
 						activation_key_was_valid = true;
 					}
-					if (auto e = PointerCache::cache.find(Codename("AZ").toString()); e != PointerCache::cache.end())
-					{
-						uintptr_t data = e->second ^ PointerCache::xor_magic;
-						//PointerCache::cache.erase(e);
-						g_auth.reportEvent(Codename("AZ"), fmt::to_string(data));
-					}
 					if (g_gui.unlock_recover_state == 0)
 					{
 						g_gui.unlock_recover_state = 1;

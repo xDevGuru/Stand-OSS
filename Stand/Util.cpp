@@ -846,14 +846,14 @@ namespace Stand
 		}
 		for (const auto& entry : CommandLockOutfit::ped_component_commands)
 		{
-			outfit.emplace(Lang::get_en(is_online_character ? entry.second.first->data->online_menu_name : entry.second.first->data->menu_name), fmt::to_string(compact_outfit.at((size_t)entry.first * 2ULL)));
-			outfit.emplace(Lang::get_en(is_online_character ? entry.second.first->data->online_variation_menu_name : entry.second.first->data->variation_menu_name), fmt::to_string(compact_outfit.at(((size_t)entry.first * 2ULL) + 1ULL)));
+			outfit.emplace(Lang::getEn(is_online_character ? entry.second.first->data->online_menu_name : entry.second.first->data->menu_name), fmt::to_string(compact_outfit.at((size_t)entry.first * 2ULL)));
+			outfit.emplace(Lang::getEn(is_online_character ? entry.second.first->data->online_variation_menu_name : entry.second.first->data->variation_menu_name), fmt::to_string(compact_outfit.at(((size_t)entry.first * 2ULL) + 1ULL)));
 		}
 		size_t i = (NUM_PED_COMPONENTS * 2ULL);
 		for (const auto& entry : CommandLockOutfit::ped_prop_commands)
 		{
-			outfit.emplace(Lang::get_en(entry.second.first->data->menu_name), fmt::to_string(compact_outfit.at(i++)));
-			outfit.emplace(Lang::get_en(entry.second.first->data->variation_menu_name), fmt::to_string(compact_outfit.at(i++)));
+			outfit.emplace(Lang::getEn(entry.second.first->data->menu_name), fmt::to_string(compact_outfit.at(i++)));
+			outfit.emplace(Lang::getEn(entry.second.first->data->variation_menu_name), fmt::to_string(compact_outfit.at(i++)));
 		}
 		outfit.emplace(LANG_GET_EN("HAIRHI"), fmt::to_string(compact_outfit.at(i++)));
 		SOUP_ASSERT(i == COMPACT_OUTFIT_SIZE);
@@ -920,7 +920,7 @@ namespace Stand
 		const bool is_online_character = ped.getModel().isOnlineCharacter();
 		for (const auto& entry : CommandLockOutfit::ped_component_commands)
 		{
-			std::string menu_name = Lang::get_en(is_online_character ? entry.second.first->data->online_menu_name : entry.second.first->data->menu_name);
+			std::string menu_name = Lang::getEn(is_online_character ? entry.second.first->data->online_menu_name : entry.second.first->data->menu_name);
 			if (outfit.find(menu_name) == outfit.end())
 			{
 				if (!convertOutfitKey(menu_name))
@@ -934,7 +934,7 @@ namespace Stand
 			}
 			int comp = std::stoi(outfit.at(menu_name));
 			int var = -1;
-			std::string variation_menu_name = Lang::get_en(is_online_character ? entry.second.first->data->online_variation_menu_name : entry.second.first->data->variation_menu_name);
+			std::string variation_menu_name = Lang::getEn(is_online_character ? entry.second.first->data->online_variation_menu_name : entry.second.first->data->variation_menu_name);
 			if (outfit.find(variation_menu_name) != outfit.end())
 			{
 				var = std::stoi(outfit.at(variation_menu_name));
@@ -956,7 +956,7 @@ namespace Stand
 		}
 		for (const auto& entry : CommandLockOutfit::ped_prop_commands)
 		{
-			std::string menu_name = Lang::get_en(entry.second.first->data->menu_name);
+			std::string menu_name = Lang::getEn(entry.second.first->data->menu_name);
 			if (outfit.find(menu_name) != outfit.end())
 			{
 				int comp = std::stoi(outfit.at(menu_name));
@@ -967,7 +967,7 @@ namespace Stand
 				else
 				{
 					int var = -1;
-					std::string variation_menu_name = Lang::get_en(entry.second.first->data->variation_menu_name);
+					std::string variation_menu_name = Lang::getEn(entry.second.first->data->variation_menu_name);
 					if (outfit.find(variation_menu_name) != outfit.end())
 					{
 						var = std::stoi(outfit.at(variation_menu_name));
@@ -983,7 +983,7 @@ namespace Stand
 		const bool is_online_character = model.isOnlineCharacter();
 		for (const auto& entry : CommandLockOutfit::ped_component_commands)
 		{
-			std::string menu_name = Lang::get_en(is_online_character ? entry.second.first->data->online_menu_name : entry.second.first->data->menu_name);
+			std::string menu_name = Lang::getEn(is_online_character ? entry.second.first->data->online_menu_name : entry.second.first->data->menu_name);
 			if (outfit.find(menu_name) == outfit.end())
 			{
 				if (!convertOutfitKey(menu_name))
@@ -996,7 +996,7 @@ namespace Stand
 				}
 			}
 			entry.second.first->value = std::stoi(outfit.at(menu_name));
-			std::string variation_menu_name = Lang::get_en(is_online_character ? entry.second.first->data->online_variation_menu_name : entry.second.first->data->variation_menu_name);
+			std::string variation_menu_name = Lang::getEn(is_online_character ? entry.second.first->data->online_variation_menu_name : entry.second.first->data->variation_menu_name);
 			if (outfit.find(variation_menu_name) != outfit.end())
 			{
 				entry.second.second->value = std::stoi(outfit.at(variation_menu_name));
@@ -1006,7 +1006,7 @@ namespace Stand
 		}
 		for (const auto& entry : CommandLockOutfit::ped_prop_commands)
 		{
-			std::string menu_name = Lang::get_en(entry.second.first->data->menu_name);
+			std::string menu_name = Lang::getEn(entry.second.first->data->menu_name);
 			if (outfit.find(menu_name) != outfit.end())
 			{
 				entry.second.first->value = std::stoi(outfit.at(menu_name));
@@ -1017,7 +1017,7 @@ namespace Stand
 				}
 				else
 				{
-					std::string variation_menu_name = Lang::get_en(entry.second.first->data->variation_menu_name);
+					std::string variation_menu_name = Lang::getEn(entry.second.first->data->variation_menu_name);
 					if (outfit.find(variation_menu_name) != outfit.end())
 					{
 						entry.second.second->value = std::stoi(outfit.at(variation_menu_name));

@@ -2,7 +2,7 @@
 
 namespace Stand
 {
-	static const std::unordered_map<XoredNativeHash, std::unordered_map<hash_t, uint16_t>> native_tables = {
+	static const std::unordered_map<rage::scrNativeHash, std::unordered_map<hash_t, uint16_t>> native_tables = {
 		{ 0xAAD68E1AB39DA632, {
 			{ ATSTRINGHASH("agency_heist1"), 526 },
 			{ ATSTRINGHASH("carwash1"), 222 },

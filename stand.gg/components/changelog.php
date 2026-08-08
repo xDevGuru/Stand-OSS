@@ -1,4 +1,8 @@
 <p>Time is provided as observed in Central Europe.</p>
+<?php printHeader('Stand 26.7.2', '22/07/2026 07:13'); ?>
+<ul>
+	<li>Removed Herobrine</li>
+</ul>
 <?php printHeader('Stand 26.7.1', '14/07/2026 16:02'); ?>
 <ul>
 	<li>Updated for 1.73-3889.0</li>

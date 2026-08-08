@@ -108,7 +108,7 @@ namespace Stand
 		std::unordered_map<rage::scrNativeHash, uint32_t> native_fingerprints{};
 		for (const auto& entry : g_script_mgr.handler_map)
 		{
-			native_fingerprints.emplace(entry.first.getHash(), getFuncHash((const uint8_t*)entry.second));
+			native_fingerprints.emplace(entry.first, getFuncHash((const uint8_t*)entry.second));
 		}
 		return native_fingerprints;
 	}
@@ -130,7 +130,7 @@ namespace Stand
 				ununique_func_hashes.emplace(func_hash);
 				continue;
 			}
-			unique_natives.emplace(func_hash, entry.first.getHash());
+			unique_natives.emplace(func_hash, entry.first);
 			//g_logger.log(fmt::format("{} -> {}", Util::to_padded_hex_string((uint64_t)entry.first), Util::to_padded_hex_string(func_hash)));
 			//unique_func_hashes.emplace(func_hash);
 		}
@@ -169,11 +169,11 @@ namespace Stand
 			auto e = ordered_natives.find(k);
 			if (e == ordered_natives.end())
 			{
-				ordered_natives.emplace(k, std::vector<rage::scrNativeHash>{ entry.first.getHash() });
+				ordered_natives.emplace(k, std::vector<rage::scrNativeHash>{ entry.first });
 			}
 			else
 			{
-				e->second.emplace_back(entry.first.getHash());
+				e->second.emplace_back(entry.first);
 			}
 		}
 		return ordered_natives;
