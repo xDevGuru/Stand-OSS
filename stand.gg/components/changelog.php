@@ -1,4 +1,8 @@
 <p>Time is provided as observed in Central Europe.</p>
+<?php printHeader('Stand 26.3.1', '17/03/2025 12:47'); ?>
+<ul>
+	<li>Updated for 1.72-3788.0</li>
+</ul>
 <?php printHeader('Stand 26.1.1', '27/01/2025 16:36'); ?>
 <ul>
 	<li>Updated for 1.72-3751.0</li>

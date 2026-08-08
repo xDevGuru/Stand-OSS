@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_URI"] == "/index")
 					<h1>Stand <span class="font-weight-lighter">for GTA V Legacy</span></h1>
 					<p>The mod menu that enhances your game experience.</p>
 					<div class="alert alert-primary">
-						<p>Stand is up-to-date for game version <b>1.72-3751.0</b>.</p>
+						<p>Stand is up-to-date for game version <b>1.72-3788.0</b>.</p>
 					</div>
 					<p><a href="#editions" class="btn btn-primary">GET STARTED</a></p>
 				</div>

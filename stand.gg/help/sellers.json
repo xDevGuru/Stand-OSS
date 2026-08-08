@@ -3439,7 +3439,9 @@
 	},
 	"QLM Shop": {
 		"aliases": ["Abdou"],
+		"note": "Removed due to people constantly complaining about not getting keys, also hasn't restocked in ages, so that's sus.",
 		"basic": {
+			"stock": -1000,
 			"cc": ["€12.49", "https://qlmshop.com/product/stand-gtav-online/"],
 			"pp": ["€12.49", "https://qlmshop.com/product/stand-gtav-online/"],
 			"btc": ["€12.49", "https://qlmshop.com/product/stand-gtav-online/"],
@@ -3450,6 +3452,7 @@
 			"psc": ["€12.49", "https://qlmshop.com/product/stand-gtav-online/"]
 		},
 		"regular": {
+			"stock": -1000,
 			"cc": ["€24.99", "https://qlmshop.com/product/stand-gtav-online/"],
 			"pp": ["€24.99", "https://qlmshop.com/product/stand-gtav-online/"],
 			"btc": ["€24.99", "https://qlmshop.com/product/stand-gtav-online/"],
@@ -3460,6 +3463,7 @@
 			"psc": ["€24.99", "https://qlmshop.com/product/stand-gtav-online/"]
 		},
 		"ultimate": {
+			"stock": -1000,
 			"cc": ["€49.99", "https://qlmshop.com/product/stand-gtav-online/"],
 			"pp": ["€49.99", "https://qlmshop.com/product/stand-gtav-online/"],
 			"btc": ["€49.99", "https://qlmshop.com/product/stand-gtav-online/"],
@@ -3470,6 +3474,7 @@
 			"psc": ["€49.99", "https://qlmshop.com/product/stand-gtav-online/"]
 		},
 		"basic_to_regular": {
+			"stock": -1000,
 			"cc": ["€12.49", "https://qlmshop.com/product/stand-gtav-online/"],
 			"pp": ["€12.49", "https://qlmshop.com/product/stand-gtav-online/"],
 			"btc": ["€12.49", "https://qlmshop.com/product/stand-gtav-online/"],
@@ -3480,6 +3485,7 @@
 			"psc": ["€12.49", "https://qlmshop.com/product/stand-gtav-online/"]
 		},
 		"regular_to_ultimate": {
+			"stock": -1000,
 			"cc": ["€24.99", "https://qlmshop.com/product/stand-gtav-online/"],
 			"pp": ["€24.99", "https://qlmshop.com/product/stand-gtav-online/"],
 			"btc": ["€24.99", "https://qlmshop.com/product/stand-gtav-online/"],
@@ -3490,6 +3496,7 @@
 			"psc": ["€24.99", "https://qlmshop.com/product/stand-gtav-online/"]
 		},
 		"basic_to_ultimate": {
+			"stock": -1000,
 			"cc": ["€37.49", "https://qlmshop.com/product/stand-gtav-online/"],
 			"pp": ["€37.49", "https://qlmshop.com/product/stand-gtav-online/"],
 			"btc": ["€37.49", "https://qlmshop.com/product/stand-gtav-online/"],
@@ -3915,6 +3922,8 @@
 			"btc": ["€12.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
 			"ltc": ["€12.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
 			"eth": ["€12.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"bch": ["€12.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"crypto2": ["€12.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
 			"apple": ["€12.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
 			"google": ["€12.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
 			"pp": ["€12.49", "https://discord.gcscheats.com/"],
@@ -3925,6 +3934,8 @@
 			"btc": ["€24.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
 			"ltc": ["€24.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
 			"eth": ["€24.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"bch": ["€24.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"crypto2": ["€24.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
 			"apple": ["€24.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
 			"google": ["€24.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
 			"pp": ["€24.99", "https://discord.gcscheats.com/"],
@@ -3935,10 +3946,45 @@
 			"btc": ["€49.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
 			"ltc": ["€49.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
 			"eth": ["€49.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"bch": ["€49.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"crypto2": ["€49.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
 			"apple": ["€49.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
 			"google": ["€49.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
 			"pp": ["€49.99", "https://discord.gcscheats.com/"],
 			"psc": ["€64.99", "https://discord.gcscheats.com/"]
+		},
+		"basic_to_regular": {
+			"cc": ["€12.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"btc": ["€12.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"ltc": ["€12.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"eth": ["€12.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"bch": ["€12.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"crypto2": ["€12.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"apple": ["€12.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"google": ["€12.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"pp": ["€12.49", "https://discord.gcscheats.com/"]
+		},
+		"regular_to_ultimate": {
+			"cc": ["€24.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"btc": ["€24.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"ltc": ["€24.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"eth": ["€24.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"bch": ["€24.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"crypto2": ["€24.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"apple": ["€24.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"google": ["€24.99", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"pp": ["€24.99", "https://discord.gcscheats.com/"]
+		},
+		"basic_to_ultimate": {
+			"cc": ["€37.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"btc": ["€37.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"ltc": ["€37.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"eth": ["€37.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"bch": ["€37.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"crypto2": ["€37.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"apple": ["€37.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"google": ["€37.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
+			"pp": ["€37.49", "https://discord.gcscheats.com/"]
 		}
 	}
 }

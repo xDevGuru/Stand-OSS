@@ -3,11 +3,11 @@
 // Config
 
 #define STAND_NAME "Stand"
-#define STAND_VERSION_TARGET "26.1.1"
+#define STAND_VERSION_TARGET "26.3.1"
 //#define STAND_RN_VERSION_TARGET "💯"
 //#define STAND_BRANCH "updating1"
 
-#define GTA_VERSION_TARGET "1.72-3751.0"
+#define GTA_VERSION_TARGET "1.72-3788.0"
 
 // IDA dump base address, should end on 0000:
 #define GTA_DUMP_BASE 0x7FF6152B0000

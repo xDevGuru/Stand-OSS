@@ -112,6 +112,7 @@ enum eGameVersion : int // Ripped from ScriptHookV.dll
 	VER_1_0_3717_0,
 	VER_1_0_3725_0,
 	VER_1_0_3751_0,
+	VER_1_0_3788_0,
 
 	VER_SIZE,
 	VER_LATEST = VER_SIZE - 1
