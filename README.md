@@ -30,17 +30,15 @@ Every once in a while, Rockstar will actually bother to change this game, which 
 
 And for major updates:
 
-- [x] **Crossmap.**
-- [x] **Peds.**
 - [x] **Vehicles.**
 - [x] **Weapons.**
+- [x] **Peds.**
 - [x] **Native Tables.** From decompiled scripts with up-to-date crossmap.
+- [x] **Joaat Hash DB.**
 - [x] **Script Funcs.**
 - [x] **Script Locals.**
 - [x] **Script Globals.**
-- [x] **Script Globals in MusinessBanager.**
-- [x] **Script Events.**
 - [x] **Session Scripts.**
 - [x] **Asset Hashes.**
 
-Additionally, structs may be off; [ReClassEx64](https://github.com/ajkhoury/ReClassEx) and Cheat Engine will help update them.
+Additionally, structs may be off; IDA, [ReClassEx64](https://github.com/ajkhoury/ReClassEx) and Cheat Engine can help update them.
