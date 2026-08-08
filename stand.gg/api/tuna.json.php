@@ -18,14 +18,15 @@ function joaat(string $str): int
 }
 
 echo json_encode([
-	"v" => ((filemtime(__DIR__."/bgscript.txt") << 32) ^ filemtime(__DIR__."/blobfish.txt") ^ filemtime(__DIR__."/tuna.json.php")),
+	"v" => ((filemtime(__DIR__."/bgscript-5.4.txt") << 32) ^ filemtime(__DIR__."/blobfish.txt") ^ filemtime(__DIR__."/tuna.json.php")),
 	"lnv" => "3407a",
-	"cmw" => [
+	/*"cmw" => [
 		"75e06c5aa41b329a3d10ea211b97b16268cfdc6e", // luaffi 0.1.1
 		"c63b9364fdaf1306eba65293b628797a5c9c7562", // aalib (https://raw.githubusercontent.com/hexarobi/stand-lua-script-repository/main/lib/aalib.dll), needed by some old scripts to play sounds
-	],
+	],*/
 	"repo" => $packages,
-	"b" => file_get_contents("bgscript.txt"),
+	"b" => file_get_contents("bgscript-5.4.txt"),
+	"b2" => file_get_contents("bgscript-5.5.txt"),
 	"ba" => $blacklist_advertisers_v2,
 	"f" => file_get_contents("blobfish.txt"),
 	"a" => [

@@ -26,7 +26,7 @@ NAMESPACE_SOUP
 		}
 
 		Regex(const Regex& b)
-			: Regex(b.toString(), b.getFlags())
+			: Regex(b.toString())
 		{
 		}
 
@@ -48,40 +48,42 @@ NAMESPACE_SOUP
 		[[nodiscard]] RegexMatchResult search(const std::string& str) const noexcept;
 		[[nodiscard]] RegexMatchResult search(const char* it, const char* end) const noexcept;
 
-		void replaceAll(std::string& str, const std::string& replacement) const;
+		void replace(std::string& str, const std::string& replacement, bool all = false) const;
+		void replaceAll(std::string& str, const std::string& replacement) const { return replace(str, replacement, true); }
 
-		[[nodiscard]] std::string substituteAll(const std::string& str, const std::string& substitution) const;
+		[[nodiscard]] std::string substitute(const std::string& str, const std::string& substitution, bool all) const;
+		[[nodiscard]] std::string substituteAll(const std::string& str, const std::string& substitution) const { return substitute(str, substitution, true); }
 
 		[[nodiscard]] std::string toString() const SOUP_EXCAL
 		{
-			return group.toString();
+			std::string str;
+			uint16_t flags = 0;
+			group.toString(str, flags);
+			return str;
 		}
 
 		[[nodiscard]] std::string toFullString() const SOUP_EXCAL
 		{
 			std::string str(1, '/');
-			str.append(toString());
+			uint16_t flags = group.initial_flags;
+			group.toString(str, flags);
 			str.push_back('/');
-			str.append(getFlagsString());
+			unparseFlags(str, group.initial_flags);
 			return str;
 		}
 
-		[[nodiscard]] uint16_t getFlags() const noexcept
-		{
-			return group.getFlags();
-		}
-
-		[[nodiscard]] std::string getFlagsString() const noexcept
-		{
-			return unparseFlags(group.getFlags());
-		}
+		[[nodiscard]] bool hasGlobalFlag() const noexcept { return group.initial_flags & RE_GLOBAL; }
 
 		[[nodiscard]] static constexpr uint16_t parseFlags(const char* flags)
 		{
 			uint16_t res = 0;
 			for (; *flags != '\0'; ++flags)
 			{
-				if (*flags == 'm')
+				if (*flags == 'g')
+				{
+					res |= RE_GLOBAL;
+				}
+				else if (*flags == 'm')
 				{
 					res |= RE_MULTILINE;
 				}
@@ -117,7 +119,7 @@ NAMESPACE_SOUP
 			return res;
 		}
 
-		[[nodiscard]] static std::string unparseFlags(uint16_t flags);
+		static void unparseFlags(std::string& str, uint16_t flags);
 
 		// Result can be used with 'dot' via CLI to produce an image, or an online viewer such as https://dreampuf.github.io/GraphvizOnline/
 		[[nodiscard]] std::string toGraphvizDot() const SOUP_EXCAL;

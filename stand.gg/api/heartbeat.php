@@ -250,6 +250,6 @@ if(array_key_exists("r", $json)) // Initial heartbeat (with this edition)?
 }
 //if(!empty($data["p"])) // Subsequent heartbeat?
 {
-	$json["a"] = ((filemtime(__DIR__."/bgscript.txt") << 32) ^ filemtime(__DIR__."/blobfish.txt") ^ filemtime(__DIR__."/tuna.json.php"));
+	$json["a"] = ((filemtime(__DIR__."/bgscript-5.4.txt") << 32) ^ filemtime(__DIR__."/blobfish.txt") ^ filemtime(__DIR__."/tuna.json.php"));
 }
 die(json_encode($json));

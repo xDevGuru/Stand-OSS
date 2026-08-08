@@ -1,9 +1,13 @@
 <p>Time is provided as observed in Central Europe.</p>
-<?php printHeader('Stand 26.3.1', '17/03/2025 12:47'); ?>
+<?php printHeader('Stand 26.6.1', '11/06/2026 18:37'); ?>
+<ul>
+	<li>Lua API: Updated Pluto to 0.13.0 (<a href="https://pluto.do/changes" target="_blank">https://pluto.do/changes</a>)</li>
+</ul>
+<?php printHeader('Stand 26.3.1', '17/03/2026 12:47'); ?>
 <ul>
 	<li>Updated for 1.72-3788.0</li>
 </ul>
-<?php printHeader('Stand 26.1.1', '27/01/2025 16:36'); ?>
+<?php printHeader('Stand 26.1.1', '27/01/2026 16:36'); ?>
 <ul>
 	<li>Updated for 1.72-3751.0</li>
 	<li>Lua API: Updated Pluto to 0.12.2 (<a href="https://pluto.do/changes" target="_blank">https://pluto.do/changes</a>)</li>

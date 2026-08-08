@@ -42,16 +42,15 @@ enum RESERVED {
   /* terminal symbols denoted by reserved words */
   TK_AND = FIRST_RESERVED, TK_BREAK,
   TK_DO, TK_ELSE, TK_ELSEIF, TK_END, TK_FALSE, TK_FOR, TK_FUNCTION,
-  TK_GOTO, TK_IF, TK_IN, TK_LOCAL, TK_NIL, TK_NOT, TK_OR, TK_REPEAT,
+  TK_GLOBAL, TK_GOTO, TK_IF, TK_IN, TK_LOCAL, TK_NIL, TK_NOT, TK_OR,
   TK_CASE, TK_DEFAULT, TK_AS, TK_BEGIN, TK_EXTENDS, TK_INSTANCEOF, // New narrow keywords.
   TK_PUSE, // New compatibility keywords.
-  TK_PSWITCH, TK_PCONTINUE, TK_PENUM, TK_PNEW, TK_PCLASS, TK_PPARENT, TK_PEXPORT, TK_PTRY, TK_PCATCH,
-  TK_SWITCH, TK_CONTINUE, TK_ENUM, TK_NEW, TK_CLASS, TK_PARENT, TK_EXPORT, TK_TRY, TK_CATCH, // New non-compatible keywords.
-  TK_GLOBAL, // New optional keywords.
+  TK_PSWITCH, TK_PCONTINUE, TK_PENUM, TK_PNEW, TK_PCLASS, TK_PPARENT, TK_PEXPORT,
+  TK_SWITCH, TK_CONTINUE, TK_ENUM, TK_NEW, TK_CLASS, TK_PARENT, TK_EXPORT, // New non-compatible keywords.
 #ifdef PLUTO_PARSER_SUGGESTIONS
   TK_SUGGEST_0, TK_SUGGEST_1, // New special keywords.
 #endif
-  TK_RETURN, TK_THEN, TK_TRUE, TK_UNTIL, TK_WHILE,
+  TK_REPEAT, TK_RETURN, TK_THEN, TK_TRUE, TK_UNTIL, TK_WHILE,
   /* other terminal symbols */
   TK_IDIV, TK_CONCAT, TK_DOTS,
   TK_EQ, TK_GE, TK_LE, TK_NE, TK_NE2, TK_SPACESHIP,
@@ -69,21 +68,19 @@ enum RESERVED {
 
 #define FIRST_COMPAT TK_PUSE
 #define FIRST_NON_COMPAT TK_SWITCH
-#define FIRST_OPTIONAL TK_GLOBAL
 #define FIRST_SPECIAL TK_SUGGEST_0
 #define LAST_RESERVED TK_WHILE
 
 static_assert(TK_PNEW + (FIRST_NON_COMPAT - FIRST_COMPAT - 1) == TK_NEW);
-static_assert(TK_PCATCH + (FIRST_NON_COMPAT - FIRST_COMPAT - 1) == TK_CATCH);
+static_assert(TK_PEXPORT + (FIRST_NON_COMPAT - FIRST_COMPAT - 1) == TK_EXPORT);
 static_assert(TK_PSWITCH + (FIRST_NON_COMPAT - FIRST_COMPAT - 1) == TK_SWITCH);
 
 #define END_COMPAT FIRST_NON_COMPAT
-#define END_NON_COMPAT FIRST_OPTIONAL
 #ifdef PLUTO_PARSER_SUGGESTIONS
-#define END_OPTIONAL FIRST_SPECIAL
-#define END_SPECIAL TK_RETURN
+#define END_NON_COMPAT FIRST_SPECIAL
+#define END_SPECIAL TK_REPEAT
 #else
-#define END_OPTIONAL TK_RETURN
+#define END_NON_COMPAT TK_REPEAT
 #endif
 
 /* number of reserved words */
@@ -157,10 +154,6 @@ struct Token {
       return (token >= FIRST_NON_COMPAT && token < END_NON_COMPAT);
   }
 
-  [[nodiscard]] bool IsOptional() const noexcept {
-      return (token >= FIRST_OPTIONAL && token < END_OPTIONAL);
-  }
-
 #ifdef PLUTO_PARSER_SUGGESTIONS
   [[nodiscard]] bool IsSpecial() const noexcept {
       return (token >= FIRST_SPECIAL && token < END_SPECIAL);
@@ -196,8 +189,6 @@ struct Token {
 
 
 enum WarningType : int {
-  ALL_WARNINGS = 0,
-
   WT_VAR_SHADOW,
   WT_GLOBAL_SHADOW,
   WT_TYPE_MISMATCH,
@@ -215,12 +206,13 @@ enum WarningType : int {
   WT_FIELD_SHADOW,
   WT_UNUSED,
 
-  NUM_WARNING_TYPES
+  NUM_STATEFUL_WARNING_TYPES,
+  ALL_WARNINGS = NUM_STATEFUL_WARNING_TYPES,
+  NUM_DIRECTIVE_WARNING_TYPES,
 };
 
 
 inline const char* const luaX_warnNames[] = {
-  "all",
   "var-shadow",
   "global-shadow",
   "type-mismatch",
@@ -237,11 +229,13 @@ inline const char* const luaX_warnNames[] = {
   "discarded-return",
   "field-shadow",
   "unused",
+
+  "all",
 };
-static_assert(sizeof(luaX_warnNames) / sizeof(const char*) == NUM_WARNING_TYPES);
+static_assert(sizeof(luaX_warnNames) / sizeof(const char*) == NUM_DIRECTIVE_WARNING_TYPES);
 
 [[nodiscard]] inline const char* luaX_getwarnname(const WarningType w) {
-  lua_assert((size_t)w >= 0 && (size_t)w < NUM_WARNING_TYPES);
+  lua_assert((size_t)w >= 0 && (size_t)w < NUM_DIRECTIVE_WARNING_TYPES);
   return luaX_warnNames[(size_t)w];
 }
 
@@ -250,83 +244,17 @@ enum WarningState : lu_byte {
   WS_OFF,
   WS_ON,
   WS_ERROR,
-  WS_UNSPECIFIED,
 };
 
 
-class WarningConfig
+struct WarningConfig
 {
-public:
   const size_t begins_at;
-  WarningState states[NUM_WARNING_TYPES];
+  WarningState states[NUM_STATEFUL_WARNING_TYPES];
 
-private:
-  [[nodiscard]] static WarningState getDefaultState(WarningType type) noexcept {
-    switch (type) {
-    /* off by default*/
-#ifndef PLUTO_WARN_GLOBAL_SHADOW
-    case WT_GLOBAL_SHADOW:
-#endif
-#ifndef PLUTO_WARN_NON_PORTABLE_CODE
-    case WT_NON_PORTABLE_CODE:
-#endif
-#ifndef PLUTO_WARN_NON_PORTABLE_BYTECODE
-    case WT_NON_PORTABLE_BYTECODE:
-#endif
-#ifndef PLUTO_WARN_NON_PORTABLE_NAME
-    case WT_NON_PORTABLE_NAME:
-#endif
-    /* on by default */
-#ifdef PLUTO_NO_WARN_VAR_SHADOW
-    case WT_VAR_SHADOW:
-#endif
-#ifdef PLUTO_NO_WARN_TYPE_MISMATCH
-    case WT_TYPE_MISMATCH:
-#endif
-#ifdef PLUTO_NO_WARN_UNREACHABLE_CODE
-    case WT_UNREACHABLE_CODE:
-#endif
-#ifdef PLUTO_NO_WARN_EXCESSIVE_ARGUMENTS
-    case WT_EXCESSIVE_ARGUMENTS:
-#endif
-#ifdef PLUTO_NO_WARN_DEPRECATED
-    case WT_DEPRECATED:
-#endif
-#ifdef PLUTO_NO_WARN_BAD_PRACTICE
-    case WT_BAD_PRACTICE:
-#endif
-#ifdef PLUTO_NO_WARN_POSSIBLE_TYPO
-    case WT_POSSIBLE_TYPO:
-#endif
-#ifdef PLUTO_NO_WARN_UNANNOTATED_FALLTHROUGH
-    case WT_UNANNOTATED_FALLTHROUGH:
-#endif
-#ifdef PLUTO_NO_WARN_DISCARDED_RETURN
-    case WT_DISCARDED_RETURN:
-#endif
-#ifdef PLUTO_NO_WARN_FIELD_SHADOW
-    case WT_FIELD_SHADOW:
-#endif
-#ifdef PLUTO_NO_WARN_UNUSED
-    case WT_UNUSED:
-#endif
-    case NUM_WARNING_TYPES:  /* dummy case so compiler doesn't cry when all macros are set */
-      return WS_OFF;
-    case WT_IMPLICIT_GLOBAL:
-      return WS_UNSPECIFIED;
-    default:
-      return WS_ON;
-    }
-  }
+  explicit WarningConfig(struct global_State* g) noexcept;
 
-public:
-  WarningConfig(size_t begins_at) noexcept : begins_at(begins_at) {
-    for (int id = 0; id != NUM_WARNING_TYPES; ++id) {
-      states[id] = getDefaultState((WarningType)id);
-    }
-  }
-
-  void copyFrom(const WarningConfig& b) noexcept {
+  explicit WarningConfig(size_t begins_at, const WarningConfig& b) noexcept : begins_at(begins_at) {
     memcpy(states, b.states, sizeof(states));
   }
 
@@ -339,13 +267,13 @@ public:
   }
 
   void setAllTo(WarningState newState) noexcept {
-    for (int id = 0; id != NUM_WARNING_TYPES; ++id) {
+    for (int id = 0; id != NUM_STATEFUL_WARNING_TYPES; ++id) {
       states[id] = newState;
     }
   }
 
   void processComment(const std::string_view& line) noexcept {
-    for (int id = 0; id != NUM_WARNING_TYPES; ++id) {
+    for (int id = 0; id != NUM_DIRECTIVE_WARNING_TYPES; ++id) {
       const char* name = luaX_warnNames[id];
       if (line.find(name) == std::string::npos)
         continue;
@@ -380,7 +308,7 @@ public:
 
 
 /*
-** State of the lexer plus state of the parser when shared by all functions.
+** State of the scanner plus state of the parser when shared by all functions.
 ** Suppression of C26495 (uninitalized member), because it's initialized elsewhere. 
 */
 #if defined(_MSC_VER) && _MSC_VER && !__INTEL_COMPILER
@@ -497,6 +425,7 @@ struct LexState {
   struct Dyndata *dyd;  /* dynamic structures used by the parser */
   TString *source;  /* current source name */
   TString *envn;  /* environment variable name */
+  TString *glbn;  /* "global" name (when not a reserved word) */
 
   bool uses_new = false;
   bool uses_extends = false;
@@ -519,23 +448,19 @@ struct LexState {
   std::unordered_set<TString*> explicit_globals{};
   std::unordered_map<const TString*, void*> global_props{};
   std::unordered_map<const TString*, void*> named_types{};
-  KeywordState keyword_states[END_OPTIONAL - FIRST_NON_COMPAT];
+  KeywordState keyword_states[END_NON_COMPAT - FIRST_NON_COMPAT];
   bool nodiscard = false;
   bool used_walrus = false;
-  bool used_try = false;
   std::unordered_map<int, int> uninformed_reserved{}; // When a reserved word is intelligently disabled for compatibility, it is added to this map. (token, line)
   std::unordered_map<const TString*, Macro> macros{};  /* used during preprocessor pass */
   std::unordered_map<const TString*, std::vector<Token>> macro_args{};  /* used during preprocessor pass */
 
-  LexState() : lines{ std::string{} }, warnconfs{ WarningConfig(0) } {
+  LexState() : lines{ std::string{} } {
     laststat = Token {};
     laststat.token = TK_EOS;
     parser_context_stck.push(PARCTX_NONE);  /* ensure there is at least 1 item on the parser context stack */
     for (int i = FIRST_NON_COMPAT; i != END_NON_COMPAT; ++i) {
       setKeywordState(i, KS_ENABLED_BY_PLUTO_UNINFORMED);
-    }
-    for (int i = FIRST_OPTIONAL; i != END_OPTIONAL; ++i) {
-      setKeywordState(i, KS_DISABLED_BY_ENV);  /* optional keywords are not applicable for auto-detection */
     }
   }
 
@@ -623,9 +548,7 @@ struct LexState {
     if (warnconfs.back().begins_at == tokens.size()) {
       return warnconfs.back();
     }
-    WarningConfig warnconf(tokens.size());
-    warnconf.copyFrom(warnconfs.back());
-    return warnconfs.emplace_back(std::move(warnconf));
+    return warnconfs.emplace_back(WarningConfig(tokens.size(), warnconfs.back()));
   }
 
   [[nodiscard]] const WarningConfig& getWarningConfig() const noexcept {
@@ -666,12 +589,29 @@ struct LexState {
   }
 
   [[nodiscard]] KeywordState getKeywordState(int t) const noexcept {
-    return t >= FIRST_NON_COMPAT && t < END_OPTIONAL ? keyword_states[t - FIRST_NON_COMPAT] : KS_INVALID;
+    return t >= FIRST_NON_COMPAT && t < END_NON_COMPAT ? keyword_states[t - FIRST_NON_COMPAT] : KS_INVALID;
   }
 
   void setKeywordState(int t, KeywordState ks) noexcept {
-    lua_assert(t >= FIRST_NON_COMPAT && t < END_OPTIONAL);
+    lua_assert(t >= FIRST_NON_COMPAT && t < END_NON_COMPAT);
     keyword_states[t - FIRST_NON_COMPAT] = ks;
+  }
+
+  [[nodiscard]] void* parAlloc(size_t size) {
+    return parse_time_allocations.emplace_back(malloc(size));
+  }
+
+  [[nodiscard]] void* parRealloc(void* oldaddr, size_t newsize) {
+    void* newaddr = realloc(oldaddr, newsize);
+    if (newaddr != oldaddr && oldaddr != nullptr) {
+      for (auto i = parse_time_allocations.rbegin(); i != parse_time_allocations.rend(); ++i) {
+        if (*i == oldaddr) {
+          *i = newaddr;
+          break;
+        }
+      }
+    }
+    return newaddr;
   }
 };
 

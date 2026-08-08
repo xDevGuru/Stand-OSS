@@ -77,7 +77,7 @@ NAMESPACE_SOUP
 		}
 		else
 		{
-			str.append(urlenc::encode(path));
+			str.append(urlenc::encodePathWithQuery(path));
 		}
 		return str;
 	}
@@ -349,10 +349,12 @@ NAMESPACE_SOUP
 						}
 						else
 						{
-							if (auto enc = self.resp.findHeader(ObfusString("Transfer-Encoding")))
+							ObfusString str_transfer_encoding("Transfer-Encoding");
+							if (auto enc = self.resp.findHeader(str_transfer_encoding))
 							{
 								if (joaat::hash(*enc) == joaat::hash("chunked"))
 								{
+									self.resp.removeHeader(str_transfer_encoding); // we don't wanna keep this header around, e.g. in case we're playing reverse-proxy.
 									self.status = BODY_CHUNKED;
 								}
 							}
@@ -533,4 +535,11 @@ NAMESPACE_SOUP
 		receiver_cap.get<HttpResponseReceiver>().tick(s, std::move(receiver_cap));
 	}
 #endif
+
+	void HttpRequest::clear() noexcept
+	{
+		MimeMessage::clear();
+		method.clear();
+		path.clear();
+	}
 }

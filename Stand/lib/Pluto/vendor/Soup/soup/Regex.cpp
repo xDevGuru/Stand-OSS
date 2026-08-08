@@ -220,18 +220,21 @@ NAMESPACE_SOUP
 		return {};
 	}
 
-	void Regex::replaceAll(std::string& str, const std::string& replacement) const
+	void Regex::replace(std::string& str, const std::string& replacement, bool all) const
 	{
 		RegexMatchResult m;
-		while (m = search(str), m.isSuccess())
+		size_t i = 0;
+		while (m = search(&str.data()[i], &str.data()[str.size()]), m.isSuccess())
 		{
 			const size_t offset = (m.groups.at(0).value().begin - str.data());
 			str.erase(offset, m.length());
 			str.insert(offset, replacement);
+			if (!all) break;
+			i = offset + replacement.length();
 		}
 	}
 
-	std::string Regex::substituteAll(const std::string& str, const std::string& substitution) const
+	std::string Regex::substitute(const std::string& str, const std::string& substitution, bool all) const
 	{
 		std::string res;
 		size_t i = 0;
@@ -240,7 +243,7 @@ NAMESPACE_SOUP
 		{
 			const size_t offset = (m.groups.at(0).value().begin - str.data());
 			res.append(str.data() + i, offset - i);
-			i = offset + m.groups.at(0).value().length();
+			i = offset + m.length();
 
 			bool dollar = false;
 			for (const auto& c : substitution)
@@ -288,14 +291,19 @@ NAMESPACE_SOUP
 					}
 				}
 			}
+
+			if (!all) break;
 		}
 		res.append(str.data() + i, str.size() - i);
 		return res;
 	}
 
-	std::string Regex::unparseFlags(uint16_t flags)
+	void Regex::unparseFlags(std::string& str, uint16_t flags)
 	{
-		std::string str{};
+		if (flags & RE_GLOBAL)
+		{
+			str.push_back('g');
+		}
 		if (flags & RE_MULTILINE)
 		{
 			str.push_back('m');
@@ -328,13 +336,16 @@ NAMESPACE_SOUP
 		{
 			str.push_back('n');
 		}
-		return str;
 	}
 
 	[[nodiscard]] static std::string node_to_graphviz_dot_string(const RegexConstraint* node)
 	{
+		std::string str;
+		uint16_t flags = 0;
+		node->toString(str, flags);
+
 		std::stringstream ss;
-		if (auto str = node->toString(); !str.empty())
+		if (!str.empty())
 		{
 			ss << std::move(str);
 		}

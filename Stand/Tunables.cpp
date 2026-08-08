@@ -176,7 +176,7 @@ namespace Stand
 		else
 #endif
 		{
-			if (auto mem = root.find("b"))
+			if (auto mem = root.find("b2"))
 			{
 				BgScript::bootFromBase64(mem->asStr());
 			}

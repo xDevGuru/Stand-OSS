@@ -207,6 +207,7 @@ static void *weaklycheckudata (lua_State *L, int ud, const char *tname) {
   return p;
 }
 
+#if !SOUP_WASM
 struct FfiFuncWrapper {
   void* addr;
   std::vector<FfiType> args;
@@ -272,6 +273,7 @@ static FfiFuncWrapper *newfuncwrapper (lua_State *L) {
   if (luaL_newmetatable(L, "pluto:ffi-funcwrapper")) {
     lua_pushliteral(L, "__gc");
     lua_pushcfunction(L, [](lua_State *L) {
+      pluto_errorifnotgc(L);
       std::destroy_at<>(checkfuncwrapper(L, 1));
       return 0;
     });
@@ -413,6 +415,7 @@ static int ffi_open (lua_State *L) {
 #endif
   return 1;
 }
+#endif
 
 struct FfiStruct : public soup::rflStruct {
   inline auto operator=(soup::rflStruct&& strct) noexcept {
@@ -486,6 +489,7 @@ static FfiStruct *ffi_new_struct_type (lua_State *L) {
   lua_settable(L, -3);
   lua_pushliteral(L, "__gc");
   lua_pushcfunction(L, [](lua_State *L) {
+    pluto_errorifnotgc(L);
     std::destroy_at<>((FfiStruct*)lua_touserdata(L, -1));
     return 0;
   });
@@ -825,7 +829,9 @@ static int ffi_callback (lua_State *L) {
 #endif
 
 static const luaL_Reg funcs_ffi[] = {
+#if !SOUP_WASM
   {"open", ffi_open},
+#endif
   {"struct", ffi_struct},
   {"alloc", ffi_alloc},
   {"write", ffi_write},

@@ -195,6 +195,7 @@
     <ClCompile Include="Pluto\lutf8lib.cpp" />
     <ClCompile Include="Pluto\lvector3lib.cpp" />
     <ClCompile Include="Pluto\lvm.cpp" />
+    <ClCompile Include="Pluto\lwasmlib.cpp" />
     <ClCompile Include="Pluto\lxml.cpp" />
     <ClCompile Include="Pluto\lzio.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\adler32.cpp" />
@@ -206,6 +207,7 @@
     <ClCompile Include="Pluto\vendor\Soup\soup\base32.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\base64.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\Bigint.cpp" />
+    <ClCompile Include="Pluto\vendor\Soup\soup\bitutil.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\Canvas.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\Capture.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\cat.cpp" />
@@ -245,6 +247,8 @@
     <ClCompile Include="Pluto\vendor\Soup\soup\LangDesc.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\LexemeParser.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\log.cpp" />
+    <ClCompile Include="Pluto\vendor\Soup\soup\lzf.cpp" />
+    <ClCompile Include="Pluto\vendor\Soup\soup\md5.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\memAllocator.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\memGuard.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\MimeMessage.cpp" />
@@ -256,6 +260,7 @@
     <ClCompile Include="Pluto\vendor\Soup\soup\os.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\ParserState.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\parse_tree.cpp" />
+    <ClCompile Include="Pluto\vendor\Soup\soup\Pattern.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\pem.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\Process.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\ProcessHandle.cpp" />
@@ -264,9 +269,12 @@
     <ClCompile Include="Pluto\vendor\Soup\soup\rand.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\Range.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\RasterFont.cpp" />
+    <ClCompile Include="Pluto\vendor\Soup\soup\Rc4State.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\Reader.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\Regex.cpp" />
+    <ClCompile Include="Pluto\vendor\Soup\soup\RegexConstraint.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\RegexGroup.cpp" />
+    <ClCompile Include="Pluto\vendor\Soup\soup\RegexGroupConstraint.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\ResolveIpAddrTask.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\rflParser.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\Rgb.cpp" />
@@ -295,6 +303,8 @@
     <ClCompile Include="Pluto\vendor\Soup\soup\Uri.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\urlenc.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\version_compare.cpp" />
+    <ClCompile Include="Pluto\vendor\Soup\soup\wasm.cpp" />
+    <ClCompile Include="Pluto\vendor\Soup\soup\whirlpool.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\Worker.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\Writer.cpp" />
     <ClCompile Include="Pluto\vendor\Soup\soup\X509Certchain.cpp" />
@@ -377,6 +387,7 @@
     <ClInclude Include="Pluto\ljson.hpp" />
     <ClInclude Include="Pluto\ljumptab.h" />
     <ClInclude Include="Pluto\ljumptabgcc.h" />
+    <ClInclude Include="Pluto\ljumptabportable.h" />
     <ClInclude Include="Pluto\llex.h" />
     <ClInclude Include="Pluto\llimits.h" />
     <ClInclude Include="Pluto\lmem.h" />
@@ -412,6 +423,7 @@
     <ClInclude Include="Pluto\vendor\Soup\soup\BCanvas.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\BigBitset.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\Bigint.hpp" />
+    <ClInclude Include="Pluto\vendor\Soup\soup\bit.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\bitmask.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\Bitset.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\bitutil.hpp" />
@@ -429,6 +441,8 @@
     <ClInclude Include="Pluto\vendor\Soup\soup\CidrSubnet4.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\CidrSubnet6.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\CidrSupernet.hpp" />
+    <ClInclude Include="Pluto\vendor\Soup\soup\CompiletimePatternBase.hpp" />
+    <ClInclude Include="Pluto\vendor\Soup\soup\CompiletimePatternWithOptBytesBase.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\console.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\ConstString.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\CpuInfo.hpp" />
@@ -495,8 +509,10 @@
     <ClInclude Include="Pluto\vendor\Soup\soup\log.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\logSink.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\logStdSink.hpp" />
+    <ClInclude Include="Pluto\vendor\Soup\soup\lzf.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\macros.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\math.hpp" />
+    <ClInclude Include="Pluto\vendor\Soup\soup\md5.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\memAllocating.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\memAllocator.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\memCAllocator.hpp" />
@@ -511,6 +527,7 @@
     <ClInclude Include="Pluto\vendor\Soup\soup\netConfig.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\netConnectTask.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\netReuseTag.hpp" />
+    <ClInclude Include="Pluto\vendor\Soup\soup\netSocketSecurity.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\netStatus.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\Notifyable.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\ObfusString.hpp" />
@@ -538,6 +555,7 @@
     <ClInclude Include="Pluto\vendor\Soup\soup\rand.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\Range.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\RasterFont.hpp" />
+    <ClInclude Include="Pluto\vendor\Soup\soup\Rc4State.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\Reader.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\RecursiveMutex.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\Regex.hpp" />
@@ -634,6 +652,7 @@
     <ClInclude Include="Pluto\vendor\Soup\soup\TlsServerHello.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\TlsServerKeyExchange.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\TlsSignatureScheme.hpp" />
+    <ClInclude Include="Pluto\vendor\Soup\soup\TlsSsl2CompatibleClientHello.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\Token.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\TransientToken.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\TrustStore.hpp" />
@@ -646,7 +665,9 @@
     <ClInclude Include="Pluto\vendor\Soup\soup\utility.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\version_compare.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\VirtualHandleRaii.hpp" />
+    <ClInclude Include="Pluto\vendor\Soup\soup\wasm.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\WeakRef.hpp" />
+    <ClInclude Include="Pluto\vendor\Soup\soup\whirlpool.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\Worker.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\Writer.hpp" />
     <ClInclude Include="Pluto\vendor\Soup\soup\X509Certchain.hpp" />
@@ -696,6 +717,7 @@
   <ItemGroup>
     <None Include="DirectXTK\SimpleMath.inl" />
     <None Include="DirectXTK\TeapotData.inc" />
+    <None Include="Pluto\vendor\Soup\soup\Makefile" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

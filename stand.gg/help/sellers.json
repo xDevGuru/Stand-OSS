@@ -241,46 +241,22 @@
 			"wechat": ["€37.50", "https://aresmodz.com/product/stand-gta5-basic-to-ultimate-upgrade-key/"]
 		}
 	},
-	"RadiantCheats": {
+	"Fractised": {
 		"aliases": ["Radiant"],
 		"basic": {
-			"stock": -100088,
-			"btc": ["£8.09", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=801&rewrite=stand-mod-menu&controller=product#/75-stand-basic"],
-			"ltc": ["£8.09", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=801&rewrite=stand-mod-menu&controller=product#/75-stand-basic"],
-			"eth": ["£8.09", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=801&rewrite=stand-mod-menu&controller=product#/75-stand-basic"],
-			"bnb": ["£8.09", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=801&rewrite=stand-mod-menu&controller=product#/75-stand-basic"],
-			"cc": ["£10.24", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=801&rewrite=stand-mod-menu&controller=product#/75-stand-basic"],
-			"google": ["£10.24", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=801&rewrite=stand-mod-menu&controller=product#/75-stand-basic"],
-			"apple": ["£10.24", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=801&rewrite=stand-mod-menu&controller=product#/75-stand-basic"],
-			"europe": ["£10.24", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=801&rewrite=stand-mod-menu&controller=product#/75-stand-basic"],
-			"pp": ["£17", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=801&rewrite=stand-mod-menu&controller=product#/75-stand-basic"]
+			"stock": -143,
+			"cc": ["£10.80", "https://fractised.com/product/stand-mod-menu/?attribute_pa_stand-mod-menu=basic"]
 		},
 		"regular": {
-			"stock": -100041,
-			"btc": ["£16.68", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=802&rewrite=stand-mod-menu&controller=product#/76-stand-regular"],
-			"ltc": ["£16.68", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=802&rewrite=stand-mod-menu&controller=product#/76-stand-regular"],
-			"eth": ["£16.68", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=802&rewrite=stand-mod-menu&controller=product#/76-stand-regular"],
-			"bnb": ["£16.68", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=802&rewrite=stand-mod-menu&controller=product#/76-stand-regular"],
-			"cc": ["£20.86", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=802&rewrite=stand-mod-menu&controller=product#/76-stand-regular"],
-			"google": ["£20.86", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=802&rewrite=stand-mod-menu&controller=product#/76-stand-regular"],
-			"apple": ["£20.86", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=802&rewrite=stand-mod-menu&controller=product#/76-stand-regular"],
-			"europe": ["£20.86", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=802&rewrite=stand-mod-menu&controller=product#/76-stand-regular"],
-			"pp": ["£27.5", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=802&rewrite=stand-mod-menu&controller=product#/76-stand-regular"]
+			"stock": -56,
+			"cc": ["£21.60", "https://fractised.com/product/stand-mod-menu/?attribute_pa_stand-mod-menu=regular"]
 		},
 		"ultimate": {
-			"stock": -100020,
-			"btc": ["£34.28", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=803&rewrite=stand-mod-menu&controller=product#/77-stand-ultimate"],
-			"ltc": ["£34.28", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=803&rewrite=stand-mod-menu&controller=product#/77-stand-ultimate"],
-			"eth": ["£34.28", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=803&rewrite=stand-mod-menu&controller=product#/77-stand-ultimate"],
-			"bnb": ["£34.28", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=803&rewrite=stand-mod-menu&controller=product#/77-stand-ultimate"],
-			"cc": ["£41.72", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=803&rewrite=stand-mod-menu&controller=product#/77-stand-ultimate"],
-			"google": ["£41.72", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=803&rewrite=stand-mod-menu&controller=product#/77-stand-ultimate"],
-			"apple": ["£41.72", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=803&rewrite=stand-mod-menu&controller=product#/77-stand-ultimate"],
-			"europe": ["£41.72", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=803&rewrite=stand-mod-menu&controller=product#/77-stand-ultimate"],
-			"pp": ["£47.5", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=803&rewrite=stand-mod-menu&controller=product#/77-stand-ultimate"]
+			"stock": -38,
+			"cc": ["£43.20", "https://fractised.com/product/stand-mod-menu/?attribute_pa_stand-mod-menu=ultimate"]
 		},
 		"basic_to_regular": {
-			"stock": -100015,
+			"stock": -100026,
 			"btc": ["£8.50", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=804&rewrite=stand-mod-menu&controller=product#/78-stand-basic_to_sane_upgrade"],
 			"ltc": ["£8.50", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=804&rewrite=stand-mod-menu&controller=product#/78-stand-basic_to_sane_upgrade"],
 			"eth": ["£8.50", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=804&rewrite=stand-mod-menu&controller=product#/78-stand-basic_to_sane_upgrade"],
@@ -292,7 +268,7 @@
 			"pp": ["£19.75", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=804&rewrite=stand-mod-menu&controller=product#/78-stand-basic_to_sane_upgrade"]
 		},
 		"regular_to_ultimate": {
-			"stock": -100022,
+			"stock": -100036,
 			"btc": ["£18.22", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=806&rewrite=stand-mod-menu&controller=product#/80-stand-sane_to_toxic_upgrade"],
 			"ltc": ["£18.22", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=806&rewrite=stand-mod-menu&controller=product#/80-stand-sane_to_toxic_upgrade"],
 			"eth": ["£18.22", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=806&rewrite=stand-mod-menu&controller=product#/80-stand-sane_to_toxic_upgrade"],
@@ -304,7 +280,7 @@
 			"pp": ["£27.5", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=806&rewrite=stand-mod-menu&controller=product#/80-stand-sane_to_toxic_upgrade"]
 		},
 		"basic_to_ultimate": {
-			"stock": -100014,
+			"stock": -100021,
 			"btc": ["£26.72", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=823&rewrite=stand-mod-menu&controller=product#/97-stand-basic_to_ultimate_upgrade"],
 			"ltc": ["£26.72", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=823&rewrite=stand-mod-menu&controller=product#/97-stand-basic_to_ultimate_upgrade"],
 			"eth": ["£26.72", "https://radiantcheats.net/index.php?id_product=61&id_product_attribute=823&rewrite=stand-mod-menu&controller=product#/97-stand-basic_to_ultimate_upgrade"],
@@ -992,81 +968,6 @@
 			"pp": ["$55", "https://pyrocorp.net/collections/gta-mod-menu/products/stand-mod-menu"]
 		}
 	},
-	"WesleyMods": {
-		"aliases": ["Wesley"],
-		"basic": {
-			"_stock": 1,
-			"cc": ["R$65", "https://discord.gg/6HTutG65hG"],
-			"pp": ["R$65", "https://discord.gg/6HTutG65hG"],
-			"btc": ["R$65", "https://discord.gg/6HTutG65hG"],
-			"ltc": ["R$65", "https://discord.gg/6HTutG65hG"],
-			"eth": ["R$65", "https://discord.gg/6HTutG65hG"],
-			"bch": ["R$65", "https://discord.gg/6HTutG65hG"],
-			"boleto": ["R$65", "https://discord.gg/6HTutG65hG"],
-			"latam": ["R$65", "https://discord.gg/6HTutG65hG"],
-			"europe": ["R$65", "https://discord.gg/6HTutG65hG"]
-		},
-		"regular": {
-			"_stock": 1,
-			"cc": ["R$130", "https://discord.gg/6HTutG65hG"],
-			"pp": ["R$130", "https://discord.gg/6HTutG65hG"],
-			"btc": ["R$130", "https://discord.gg/6HTutG65hG"],
-			"ltc": ["R$130", "https://discord.gg/6HTutG65hG"],
-			"eth": ["R$130", "https://discord.gg/6HTutG65hG"],
-			"bch": ["R$130", "https://discord.gg/6HTutG65hG"],
-			"boleto": ["R$130", "https://discord.gg/6HTutG65hG"],
-			"latam": ["R$130", "https://discord.gg/6HTutG65hG"],
-			"europe": ["R$130", "https://discord.gg/6HTutG65hG"]
-		},
-		"ultimate": {
-			"_stock": 1,
-			"cc": ["R$270", "https://discord.gg/6HTutG65hG"],
-			"pp": ["R$270", "https://discord.gg/6HTutG65hG"],
-			"btc": ["R$270", "https://discord.gg/6HTutG65hG"],
-			"ltc": ["R$270", "https://discord.gg/6HTutG65hG"],
-			"eth": ["R$270", "https://discord.gg/6HTutG65hG"],
-			"bch": ["R$270", "https://discord.gg/6HTutG65hG"],
-			"boleto": ["R$270", "https://discord.gg/6HTutG65hG"],
-			"latam": ["R$270", "https://discord.gg/6HTutG65hG"],
-			"europe": ["R$270", "https://discord.gg/6HTutG65hG"]
-		},
-		"basic_to_regular": {
-			"_stock": 1,
-			"cc": ["R$65", "https://discord.gg/6HTutG65hG"],
-			"pp": ["R$65", "https://discord.gg/6HTutG65hG"],
-			"btc": ["R$65", "https://discord.gg/6HTutG65hG"],
-			"ltc": ["R$65", "https://discord.gg/6HTutG65hG"],
-			"eth": ["R$65", "https://discord.gg/6HTutG65hG"],
-			"bch": ["R$65", "https://discord.gg/6HTutG65hG"],
-			"boleto": ["R$65", "https://discord.gg/6HTutG65hG"],
-			"latam": ["R$65", "https://discord.gg/6HTutG65hG"],
-			"europe": ["R$65", "https://discord.gg/6HTutG65hG"]
-		},
-		"regular_to_ultimate": {
-			"_stock": 1,
-			"cc": ["R$130", "https://discord.gg/6HTutG65hG"],
-			"pp": ["R$130", "https://discord.gg/6HTutG65hG"],
-			"btc": ["R$130", "https://discord.gg/6HTutG65hG"],
-			"ltc": ["R$130", "https://discord.gg/6HTutG65hG"],
-			"eth": ["R$130", "https://discord.gg/6HTutG65hG"],
-			"bch": ["R$130", "https://discord.gg/6HTutG65hG"],
-			"boleto": ["R$130", "https://discord.gg/6HTutG65hG"],
-			"latam": ["R$130", "https://discord.gg/6HTutG65hG"],
-			"europe": ["R$130", "https://discord.gg/6HTutG65hG"]
-		},
-		"basic_to_ultimate": {
-			"_stock": 1,
-			"cc": ["€40", "https://discord.gg/6HTutG65hG"],
-			"pp": ["€40", "https://discord.gg/6HTutG65hG"],
-			"btc": ["€40", "https://discord.gg/6HTutG65hG"],
-			"ltc": ["€40", "https://discord.gg/6HTutG65hG"],
-			"eth": ["€40", "https://discord.gg/6HTutG65hG"],
-			"bch": ["€40", "https://discord.gg/6HTutG65hG"],
-			"boleto": ["€40", "https://discord.gg/6HTutG65hG"],
-			"latam": ["€40", "https://discord.gg/6HTutG65hG"],
-			"europe": ["€40", "https://discord.gg/6HTutG65hG"]
-		}
-	},
 	"ModMart": {
 		"basic": {
 			"_stock": 1,
@@ -1268,18 +1169,6 @@
 			"eth": ["$11.50", "https://troopkeys.com/product/stand/"],
 			"bch": ["$11.50", "https://troopkeys.com/product/stand/"],
 			"crypto2": ["$11.50", "https://troopkeys.com/product/stand/"]
-		}
-	},
-	"Fractised": {
-		"basic": {
-			"stock": -10008,
-			"btc": ["$13.40", "https://fractisedshop.sellix.io/product/61ed7b58d0550"],
-			"ltc": ["$13.40", "https://fractisedshop.sellix.io/product/61ed7b58d0550"],
-			"eth": ["$13.40", "https://fractisedshop.sellix.io/product/61ed7b58d0550"],
-			"bch": ["$13.40", "https://fractisedshop.sellix.io/product/61ed7b58d0550"],
-			"cc": ["$13.40", "https://fractisedshop.sellix.io/product/61ed7b58d0550"],
-			"pp": ["$13.40", "https://fractisedshop.sellix.io/product/61ed7b58d0550"],
-			"europe": ["$13.40", "https://fractisedshop.sellix.io/product/61ed7b58d0550"]
 		}
 	},
 	"ZStore Brazil": {
@@ -3985,6 +3874,22 @@
 			"apple": ["€37.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
 			"google": ["€37.49", "https://gcscheats.com/product/stand-mod-menu-gta-online"],
 			"pp": ["€37.49", "https://discord.gcscheats.com/"]
+		}
+	},
+	"hardduckmarket": {
+		"basic": {
+			"btc": ["$12.99", "https://www.hardduckmarket.xyz/product/stand-mod-menu-gtav"],
+			"ltc": ["$12.99", "https://www.hardduckmarket.xyz/product/stand-mod-menu-gtav"],
+			"eth": ["$12.99", "https://www.hardduckmarket.xyz/product/stand-mod-menu-gtav"],
+			"bch": ["$12.99", "https://www.hardduckmarket.xyz/product/stand-mod-menu-gtav"],
+			"crypto2": ["$12.99", "https://www.hardduckmarket.xyz/product/stand-mod-menu-gtav"]
+		},
+		"regular": {
+			"btc": ["$26.99", "https://www.hardduckmarket.xyz/product/stand-mod-menu-gtav"],
+			"ltc": ["$26.99", "https://www.hardduckmarket.xyz/product/stand-mod-menu-gtav"],
+			"eth": ["$26.99", "https://www.hardduckmarket.xyz/product/stand-mod-menu-gtav"],
+			"bch": ["$26.99", "https://www.hardduckmarket.xyz/product/stand-mod-menu-gtav"],
+			"crypto2": ["$26.99", "https://www.hardduckmarket.xyz/product/stand-mod-menu-gtav"]
 		}
 	}
 }

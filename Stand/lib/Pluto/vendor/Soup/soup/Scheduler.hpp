@@ -13,6 +13,7 @@
 #endif
 
 #include "AtomicDeque.hpp"
+#include "netSocketSecurity.hpp"
 #include "SharedPtr.hpp"
 #include "Worker.hpp"
 
@@ -103,7 +104,7 @@ NAMESPACE_SOUP
 		}
 
 		void run();
-		void runFor(unsigned int ms);
+		bool runFor(unsigned int ms); // false = timeout, true = all done.
 		[[nodiscard]] bool shouldKeepRunning() const noexcept;
 		void tick();
 	protected:
@@ -135,7 +136,7 @@ NAMESPACE_SOUP
 
 		[[nodiscard]] SharedPtr<Worker> getShared(const Worker& w) const;
 #if !SOUP_WASM
-		[[nodiscard]] SharedPtr<Socket> findReusableSocket(const std::string& host, uint16_t port, bool tls);
+		[[nodiscard]] SharedPtr<Socket> findReusableSocket(const std::string& host, uint16_t port, netSocketSecurity min_security);
 		void closeReusableSockets() SOUP_EXCAL;
 #endif
 

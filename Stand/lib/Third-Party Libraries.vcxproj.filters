@@ -339,8 +339,8 @@
     <ClCompile Include="Pluto\lbufferlib.cpp">
       <Filter>Pluto</Filter>
     </ClCompile>
-    <ClCompile Include="Pluto\vendor\Soup\soup\aes.cpp">
-      <Filter>Pluto\vendor\Soup</Filter>
+    <ClCompile Include="Pluto\lwasmlib.cpp">
+      <Filter>Pluto</Filter>
     </ClCompile>
     <ClCompile Include="Pluto\vendor\Soup\soup\alloc.cpp">
       <Filter>Pluto\vendor\Soup</Filter>
@@ -361,6 +361,9 @@
       <Filter>Pluto\vendor\Soup</Filter>
     </ClCompile>
     <ClCompile Include="Pluto\vendor\Soup\soup\Bigint.cpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClCompile>
+    <ClCompile Include="Pluto\vendor\Soup\soup\bitutil.cpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClCompile>
     <ClCompile Include="Pluto\vendor\Soup\soup\Canvas.cpp">
@@ -480,6 +483,12 @@
     <ClCompile Include="Pluto\vendor\Soup\soup\log.cpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClCompile>
+    <ClCompile Include="Pluto\vendor\Soup\soup\lzf.cpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClCompile>
+    <ClCompile Include="Pluto\vendor\Soup\soup\md5.cpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClCompile>
     <ClCompile Include="Pluto\vendor\Soup\soup\memAllocator.cpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClCompile>
@@ -513,6 +522,9 @@
     <ClCompile Include="Pluto\vendor\Soup\soup\ParserState.cpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClCompile>
+    <ClCompile Include="Pluto\vendor\Soup\soup\Pattern.cpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClCompile>
     <ClCompile Include="Pluto\vendor\Soup\soup\pem.cpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClCompile>
@@ -537,13 +549,22 @@
     <ClCompile Include="Pluto\vendor\Soup\soup\RasterFont.cpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClCompile>
+    <ClCompile Include="Pluto\vendor\Soup\soup\Rc4State.cpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClCompile>
     <ClCompile Include="Pluto\vendor\Soup\soup\Reader.cpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClCompile>
     <ClCompile Include="Pluto\vendor\Soup\soup\Regex.cpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClCompile>
+    <ClCompile Include="Pluto\vendor\Soup\soup\RegexConstraint.cpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClCompile>
     <ClCompile Include="Pluto\vendor\Soup\soup\RegexGroup.cpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClCompile>
+    <ClCompile Include="Pluto\vendor\Soup\soup\RegexGroupConstraint.cpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClCompile>
     <ClCompile Include="Pluto\vendor\Soup\soup\ResolveIpAddrTask.cpp">
@@ -630,6 +651,12 @@
     <ClCompile Include="Pluto\vendor\Soup\soup\version_compare.cpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClCompile>
+    <ClCompile Include="Pluto\vendor\Soup\soup\wasm.cpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClCompile>
+    <ClCompile Include="Pluto\vendor\Soup\soup\whirlpool.cpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClCompile>
     <ClCompile Include="Pluto\vendor\Soup\soup\Worker.cpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClCompile>
@@ -649,6 +676,9 @@
       <Filter>Pluto\vendor\Soup</Filter>
     </ClCompile>
     <ClCompile Include="Pluto\vendor\Soup\soup\adler32.cpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClCompile>
+    <ClCompile Include="Pluto\vendor\Soup\soup\aes.cpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1049,11 +1079,8 @@
     <ClInclude Include="Pluto\lapi.h">
       <Filter>Pluto</Filter>
     </ClInclude>
-    <ClInclude Include="Pluto\vendor\Soup\soup\aes.hpp">
-      <Filter>Pluto\vendor\Soup</Filter>
-    </ClInclude>
-    <ClInclude Include="Pluto\vendor\Soup\soup\aes_intrin.hpp">
-      <Filter>Pluto\vendor\Soup</Filter>
+    <ClInclude Include="Pluto\ljumptabportable.h">
+      <Filter>Pluto</Filter>
     </ClInclude>
     <ClInclude Include="Pluto\vendor\Soup\soup\alloc.hpp">
       <Filter>Pluto\vendor\Soup</Filter>
@@ -1089,6 +1116,9 @@
       <Filter>Pluto\vendor\Soup</Filter>
     </ClInclude>
     <ClInclude Include="Pluto\vendor\Soup\soup\Bigint.hpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClInclude>
+    <ClInclude Include="Pluto\vendor\Soup\soup\bit.hpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClInclude>
     <ClInclude Include="Pluto\vendor\Soup\soup\bitmask.hpp">
@@ -1140,6 +1170,12 @@
       <Filter>Pluto\vendor\Soup</Filter>
     </ClInclude>
     <ClInclude Include="Pluto\vendor\Soup\soup\CidrSupernet.hpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClInclude>
+    <ClInclude Include="Pluto\vendor\Soup\soup\CompiletimePatternBase.hpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClInclude>
+    <ClInclude Include="Pluto\vendor\Soup\soup\CompiletimePatternWithOptBytesBase.hpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClInclude>
     <ClInclude Include="Pluto\vendor\Soup\soup\console.hpp">
@@ -1340,10 +1376,16 @@
     <ClInclude Include="Pluto\vendor\Soup\soup\logStdSink.hpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClInclude>
+    <ClInclude Include="Pluto\vendor\Soup\soup\lzf.hpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClInclude>
     <ClInclude Include="Pluto\vendor\Soup\soup\macros.hpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClInclude>
     <ClInclude Include="Pluto\vendor\Soup\soup\math.hpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClInclude>
+    <ClInclude Include="Pluto\vendor\Soup\soup\md5.hpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClInclude>
     <ClInclude Include="Pluto\vendor\Soup\soup\memAllocating.hpp">
@@ -1386,6 +1428,9 @@
       <Filter>Pluto\vendor\Soup</Filter>
     </ClInclude>
     <ClInclude Include="Pluto\vendor\Soup\soup\netReuseTag.hpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClInclude>
+    <ClInclude Include="Pluto\vendor\Soup\soup\netSocketSecurity.hpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClInclude>
     <ClInclude Include="Pluto\vendor\Soup\soup\netStatus.hpp">
@@ -1467,6 +1512,9 @@
       <Filter>Pluto\vendor\Soup</Filter>
     </ClInclude>
     <ClInclude Include="Pluto\vendor\Soup\soup\RasterFont.hpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClInclude>
+    <ClInclude Include="Pluto\vendor\Soup\soup\Rc4State.hpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClInclude>
     <ClInclude Include="Pluto\vendor\Soup\soup\Reader.hpp">
@@ -1757,6 +1805,9 @@
     <ClInclude Include="Pluto\vendor\Soup\soup\TlsSignatureScheme.hpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClInclude>
+    <ClInclude Include="Pluto\vendor\Soup\soup\TlsSsl2CompatibleClientHello.hpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClInclude>
     <ClInclude Include="Pluto\vendor\Soup\soup\Token.hpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClInclude>
@@ -1793,7 +1844,13 @@
     <ClInclude Include="Pluto\vendor\Soup\soup\VirtualHandleRaii.hpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClInclude>
+    <ClInclude Include="Pluto\vendor\Soup\soup\wasm.hpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClInclude>
     <ClInclude Include="Pluto\vendor\Soup\soup\WeakRef.hpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClInclude>
+    <ClInclude Include="Pluto\vendor\Soup\soup\whirlpool.hpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClInclude>
     <ClInclude Include="Pluto\vendor\Soup\soup\Worker.hpp">
@@ -1817,6 +1874,12 @@
     <ClInclude Include="Pluto\vendor\Soup\soup\adler32.hpp">
       <Filter>Pluto\vendor\Soup</Filter>
     </ClInclude>
+    <ClInclude Include="Pluto\vendor\Soup\soup\aes.hpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClInclude>
+    <ClInclude Include="Pluto\vendor\Soup\soup\aes_intrin.hpp">
+      <Filter>Pluto\vendor\Soup</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectXTK\TeapotData.inc">
@@ -1824,6 +1887,9 @@
     </None>
     <None Include="DirectXTK\SimpleMath.inl">
       <Filter>DirectXTK</Filter>
+    </None>
+    <None Include="Pluto\vendor\Soup\soup\Makefile">
+      <Filter>Pluto\vendor\Soup</Filter>
     </None>
   </ItemGroup>
 </Project>

@@ -15,6 +15,7 @@ stand.gg/src/vendor/
 *.recipe
 *.tlog
 *.exe
+!bgscript/*.exe
 *.map
 composer.lock
 .apm_cache/
